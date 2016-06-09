@@ -1,0 +1,10 @@
+label: Vertaling
+tips:
+  locale-overview:
+    label: Gebruikersinterface-vertaling
+  locale-language:
+    label: Vertalingstaal
+  locale-search:
+    label: Zoeken
+  locale-translate:
+    label: Vertalen

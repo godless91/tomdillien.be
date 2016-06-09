@@ -1,0 +1,8 @@
+global-styling:
+  js:
+    js/bootstrap.min.js: { scope: footer }
+  css:
+    theme:
+      css/bootstrap.min.css: { }
+  dependencies: 
+    - core/jquery

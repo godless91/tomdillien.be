@@ -1,0 +1,53 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+# core
+
+# Core's dependencies are managed with Composer.
+cms.angular-drupal8.local/vendor
+
+# Ignore configuration files that may contain sensitive information.
+cms.angular-drupal8.local/sites/*/settings*.php
+cms.angular-drupal8.local/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+cms.angular-drupal8.local/sites/*/files
+cms.angular-drupal8.local/sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+cms.angular-drupal8.local/sites/simpletest
+
+# If you prefer to store your .gitignore file in the sites/ folder, comment
+# or delete the previous settings and uncomment the following ones, instead.
+
+# Ignore configuration files that may contain sensitive information.
+# */settings*.php
+
+# Ignore paths that contain user-generated content.
+# */files
+# */private
+
+# Ignore SimpleTest multi-site environment.
+# simpletest
+
+# Ignore core phpcs.xml and phpunit.xml.
+cms.angular-drupal8.local/core/phpcs.xml
+cms.angular-drupal8.local/core/phpunit.xml
+
+
+# Angular gitignore.
+app.angular-drupal8.local/logs/*
+app.angular-drupal8.local/!.gitkeep
+app.angular-drupal8.local/node_modules/
+app.angular-drupal8.local/bower_components/
+app.angular-drupal8.local/tmp
+app.angular-drupal8.local/.DS_Store
+app.angular-drupal8.local/.idea

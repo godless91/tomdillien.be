@@ -1,0 +1,77 @@
+<?php
+use Symfony\Component\HttpFoundation\Session\Flash;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
+use Symfony\Component\HttpFoundation\Session\Session;
+
+function flash_messages_preprocess_status_messages(&$variables){
+	$session = new Session();
+	//dpm($session);
+	//$session->start();
+
+	//dpm($variables);
+
+	 $display = $variables['display'];
+
+	  $status_heading = array(
+	    'status' => t('Status message'),
+	    'error' => t('Error message'),
+	    'warning' => t('Warning message'),
+	  );
+	 foreach (drupal_get_messages($display) as $type => $messages) {
+		if (!empty($status_heading[$type])) {
+			dpm($messages);
+		    if (count($messages) > 1) {
+		    	dpm('yes');
+		    	die($messages);
+		      foreach ($messages as $message) {
+		      	dpm($message);
+		      }
+
+		  	}
+		  }
+	  }
+
+	//add flash messages
+	$session->getFlashBag()->add('error', 'Failed to update name');
+
+	foreach ($session->getFlashBag()->all() as $type => $messages) {
+    	foreach ($messages as $message) {
+        	echo '<div class="alert alert-success fade in flash-'.$type.'">';
+        	echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>';
+        	echo $message.'</strong></div>';
+    	}
+	}
+}
+
+function flash_messages_page_attachments_alter(&$page) {
+  $page['#attached']['library'][] = 'flash_messages/global-styling';
+}
+
+// function theme_status_messages($variables) {
+//   $display = $variables['display'];
+//   $output = '';
+
+//   $status_heading = array(
+//     'status' => t('Status message'),
+//     'error' => t('Error message'),
+//     'warning' => t('Warning message'),
+//   );
+//   foreach (drupal_get_messages($display) as $type => $messages) {
+//     $output .= "<div class=\"messages messages--$type\">\n";
+//     if (!empty($status_heading[$type])) {
+//       $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+//     }
+//     if (count($messages) > 1) {
+//       $output .= " <ul class=\"messages__list\">\n";
+//       foreach ($messages as $message) {
+//         $output .= '  <li class="messages__item">' . $message . "</li>\n";
+//       }
+//       $output .= " </ul>\n";
+//     }
+//     else {
+//       $output .= $messages[0];
+//     }
+//     $output .= "</div>\n";
+//   }
+//   return $output;
+// }

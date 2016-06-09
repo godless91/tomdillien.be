@@ -1,0 +1,7 @@
+jdrupal.config:
+  path: '/admin/config/services/jdrupal'
+  defaults:
+    _controller: '\Drupal\jdrupal\Controller\jDrupalController::jdrupalConfig'
+    _title: 'jDrupal'
+  requirements:
+    _permission: 'administer jdrupal'
