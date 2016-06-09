@@ -1,0 +1,18 @@
+uuid: c30716d1-fc0c-4bbd-bd11-e24e6693750b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Latest Works'
+type: latest_works
+description: 'Shows my latest portfolio works'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

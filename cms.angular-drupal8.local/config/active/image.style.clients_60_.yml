@@ -1,0 +1,15 @@
+uuid: 55426722-e6e4-4303-9acb-c1ac35cb5c8a
+langcode: en
+status: true
+dependencies: {  }
+name: clients_60_
+label: 'Clients (*× 60)'
+effects:
+  80d61187-bbca-4aa5-a4ee-c2642c327f88:
+    uuid: 80d61187-bbca-4aa5-a4ee-c2642c327f88
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 60
+      upscale: true

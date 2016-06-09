@@ -1,0 +1,9 @@
+name: Navigation Json Export
+type: module
+description: Makes the Main Navigation available as json.
+# core: 8.x
+package: Portfolio
+dependencies:
+  - serialization
+  - rest
+core: '8.x'

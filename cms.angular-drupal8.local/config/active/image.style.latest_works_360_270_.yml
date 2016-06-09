@@ -1,0 +1,14 @@
+uuid: 9a29815b-7ed8-4826-abe4-8c380889f5e8
+langcode: en
+status: true
+dependencies: {  }
+name: latest_works_360_270_
+label: 'Latest Works (360×270)'
+effects:
+  217769f5-1dd9-4dcc-bbd8-04539d600aae:
+    uuid: 217769f5-1dd9-4dcc-bbd8-04539d600aae
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 187

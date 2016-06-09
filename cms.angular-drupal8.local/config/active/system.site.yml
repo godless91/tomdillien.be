@@ -1,0 +1,14 @@
+uuid: ad91741d-326b-48e8-96a6-5c2516ce3b7d
+name: Portfolio
+mail: tom.dillien91@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

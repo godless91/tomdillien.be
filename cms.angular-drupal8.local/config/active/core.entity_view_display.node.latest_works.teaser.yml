@@ -1,0 +1,33 @@
+uuid: 7d5b964b-2820-4f89-a26b-6d865c18c24f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.latest_works.body
+    - field.field.node.latest_works.field_image
+    - field.field.node.latest_works.field_other_images
+    - field.field.node.latest_works.field_tags
+    - node.type.latest_works
+  module:
+    - text
+    - user
+id: node.latest_works.teaser
+targetEntityType: node
+bundle: latest_works
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  field_image: true
+  field_other_images: true
+  field_tags: true
+  langcode: true

@@ -1,0 +1,12 @@
+uuid: 0a11ef59-d8ca-4aa2-868a-61708339694d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: c4zaT5cyPxuTXI6JOWt3qRtMvICT9tHB6d9a5VG-CmQ
+id: feedback
+label: 'Website feedback'
+recipients:
+  - tom.dillien91@gmail.com
+reply: ''
+weight: 0

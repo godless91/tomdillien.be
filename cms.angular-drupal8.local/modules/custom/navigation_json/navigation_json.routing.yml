@@ -1,0 +1,7 @@
+navigation_json.export:
+  path: '/export/json/main-menu'
+  defaults:
+    _controller: '\Drupal\navigation_json\Controller\NavigationJsonController::export'
+    _title: 'Main Menu Json Export'
+  requirements:
+    _permission: 'access content'
