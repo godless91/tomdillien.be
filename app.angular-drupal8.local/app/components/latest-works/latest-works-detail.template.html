@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div id="portfolioModal1" class="modal fade portfolio-modal" role="dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="close-modal" ng-click="close()" data-dismiss="modal">
+        <div class="lr">
+            <div class="rl">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+
+            <!-- Project Details Go Here -->
+            <h2>{{ work[0].title }}</h2>
+            <p class="item-intro text-muted">{{ work[0].field_subtitle }}</p>
+            <img ng-repeat='imageSrc in arrImages' ng-src='{{ imageSrc }}'>
+            <p ng-bind-html='work[0].body'></p>
+            <ul class="list-inline">
+              <li ng-repeat='tag in arrTags' >{{ tag }}</li>
+            </ul>
+            <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

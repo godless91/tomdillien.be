@@ -1,5 +1,0 @@
-jdrupal.admin:
-  title: 'jDrupal'
-  description: 'Manage jDrupal'
-  parent: system.admin_config_services
-  route_name: jdrupal.config

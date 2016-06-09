@@ -1,0 +1,30 @@
+<div id="history" class="section-bg-grey">
+  <div class="container">
+      <div class="page-header text-center">
+          <h1 id="timeline">Web History</h1>
+      </div>
+      <ul class="timeline">
+          <li class='revealOnScroll visuallyhidden' 
+            ng-repeat="element in $ctrl.timeline" 
+            data-timeout="200" 
+            data-animation= "{{ element.dataAnimation }}"
+            ng-class-even="'timeline-inverted'" timeline-post-repeat-directive 
+          >
+            <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="{{ element.field_timeline_year_span }}" id=""></i></a></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <img class="img-responsive" ng-src="{{ element.field_image }}" />
+              </div>
+              <div class="timeline-body">
+                <h2 ng-bind-html=" element.title"></h2>
+                <p><i>{{ element.field_timeline_year_span }}</i></p>
+                <p ng-bind-html=" element.body">
+                  
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="clearfix" style="float: none;"></li>
+      </ul>
+  </div>
+</div>

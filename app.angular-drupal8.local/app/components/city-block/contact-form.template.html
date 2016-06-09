@@ -1,0 +1,70 @@
+<!-- Modal -->
+<div id="portfolioModal1" class="modal fade portfolio-modal" role="dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="close-modal" ng-click="close()" data-dismiss="modal">
+        <div class="lr">
+            <div class="rl">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>Contact Me</h2>
+            <br/>
+            <form ng-hide="formHidden" name="contactform"  ng-submit="submitForm(contactform)" method="post" class="form-horizontal" role="form" novalidate>
+              <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+                <label for="inputName" class="col-lg-2 control-label">Name</label>
+                <div class="col-lg-10">
+                  <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Your Name" required>
+                    <div ng-show="contactform.inputName.$touched" ng-messages="contactform.inputName.$error" role="alert">
+                      <div class="alert-danger" ng-message="required">Please enter a value for this field.</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Your Email" required>
+                    <div ng-messages="contactform.inputEmail.$error" role="alert" ng-messages-multiple>
+                    <div ng-show="contactform.inputEmail.$touched" class="alert-danger" ng-message="required">Please enter a value for this field.</div>
+                      <div class="alert-danger" ng-message="email">This field must be a valid email address.</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
+                <label for="inputSubject" class="col-lg-2 control-label">Subject</label>
+                <div class="col-lg-10">
+                  <input ng-model="formData.inputSubject" type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Subject Message" required>
+                  <div ng-show="contactform.inputSubject.$touched" ng-messages="contactform.inputSubject.$error" role="alert">
+                      <div class="alert-danger" ng-message="required">Please enter a value for this field.</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+                <label for="inputMessage" class="col-lg-2 control-label">Message</label>
+                <div class="col-lg-10">
+                    <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Your message..." required></textarea>
+                    <div ng-show="contactform.inputMessage.$touched" ng-messages="contactform.inputMessage.$error" role="alert">
+                      <div class="alert-danger" ng-message="required">Please enter a value for this field.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
+                          Send Message
+                      </button>
+                  </div>
+              </div>
+            </form>
+            <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

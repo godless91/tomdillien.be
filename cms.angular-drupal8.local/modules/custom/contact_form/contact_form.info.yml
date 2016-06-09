@@ -1,7 +1,0 @@
-name: Contact Form Processing.
-type: module
-description: Handles Contact Form Processing.
-# core: 8.x
-package: Portfolio
-dependencies:
-core: '8.x'

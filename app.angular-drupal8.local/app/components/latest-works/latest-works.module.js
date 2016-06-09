@@ -1,0 +1,1 @@
+angular.module('latestWorks', ['ui.router', 'ui.bootstrap', 'angularModalService', 'services', 'templates']);

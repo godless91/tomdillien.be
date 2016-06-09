@@ -1,0 +1,35 @@
+<div id="latest-works" class="section-bg-grey">
+  <div class="container">
+    <div class="row centered">
+      <h2>Check out some of my latest works.</h2>
+      <div class="col-md-8 col-md-offset-2">
+        <p>These works are all made<br/>during my years in college<br/>as in my professional carreer.</p>
+      </div><!--/col-md-8-->
+      <!-- Portfolio Grid Section -->
+      <section id="portfolio" class="bg-light-gray">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4 col-sm-6 portfolio-item" ng-repeat="work in $ctrl.works">
+                      <a href='#' data-animation="bounceInUp" data-timeout="400" ng-click="$ctrl.showModal( work.nid )" class="portfolio-link revealOnScroll visuallyhidden" data-toggle="modal">
+                          <div class="portfolio-hover">
+                              <div class="portfolio-hover-content">
+                                  <i class="fa fa-plus fa-3x"></i>
+                              </div>
+                          </div>
+                          <img ng-src="{{ work.field_image }}" class="img-responsive" alt="">
+                      </a>
+                      <div class="portfolio-caption">
+                          <h3>{{ work.title }}</h3>
+                          <p>{{ work.field_subtitle }}</p>
+                          <ul class="list-inline">
+                            <li ng-repeat='tag in work.field_tags | limitTo:3' >{{ tag }}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    </div>
+  </div>
+</div><!-- portfolio container -->
+

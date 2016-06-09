@@ -1,0 +1,21 @@
+<div id="skills">
+	<div class="container ptb">
+		<div class="row centered">
+	      <h2>My skillset for web</h2>
+      	</div><!--/col-md-8-->
+
+	  	<div id='skillsWrapper' class="row">
+		    
+			<div class='circleWrapper col-md-4 col-sm-4' ng-repeat="skill in $ctrl.skills" skills-post-repeat-directive>
+				<div class="circle revealOnScroll visuallyhidden" data-animation="bounceInUp" data-timeout="400"ng-controller="chartCtrl">
+				    <div easypiechart options="options" percent="percent"></div>
+				    <span class="circle-rate">{{ skill.field_rate }}%</span>
+				    <span>{{ skill.title }}</span>
+				</div>
+			</div>
+			
+	  	</div><!--/row-->
+	</div><!-- /.container -->
+	<div class="container">
+</div>
+

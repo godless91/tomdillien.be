@@ -1,7 +1,0 @@
-contact_form.processs:
-  path: '/contact-form-process '
-  defaults:
-    _controller: '\Drupal\contact_form\Controller\ContactformController::process'
-    _title: 'Contact Form Process'
-  requirements:
-    _permission: 'access content'

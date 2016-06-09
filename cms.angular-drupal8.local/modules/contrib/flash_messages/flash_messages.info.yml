@@ -1,7 +1,0 @@
-name: Flash Messages
-description: Turns Status messages into flash messages.
-type: module
-core: 8.x
-version: 1.x
-libraries:
-  - global-styling

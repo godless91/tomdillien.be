@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myPortfolio">
+  <head>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" href="arnold.gif" type="image/gif" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Tom Dilliën | Portfolio</title>
+
+    <!-- Minified css -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <base href='/' />
+  </head>
+
+  <body ng-controller="homeCtrl">
+    <!-- Component Navigation -->
+    <navigation></navigation>
+
+    <!-- Component Slideshow -->
+    <cslider></cslider>
+
+    <!-- Component Intro Block -->
+    <intro-block-view></intro-block-view>
+
+    <!-- Component Latest Works -->
+    <latest-works></latest-works>
+
+    <!-- Component Skills -->
+    <skills></skills>
+
+    <!-- Component Timeline Block -->
+    <timeline></timeline>
+
+    <!-- Component Clients -->
+    <clients></clients>
+
+    <!-- Component City Block -->
+    <city-block></city-block>
+
+
+    <div id="f">
+      <div class="container">
+        <div class="row centered">
+            <div class="col-md-8 col-md-offset-2">
+                <a href="http://www.instagram.com/tomdilli/"><i class="ion-social-instagram"></i></a>
+                <a href="http://www.facebook.com/godlessTNT"><i class="ion-social-facebook"></i></a>  
+                <a href="http://www.linkedin.com/in/tom-dilliën-aa0277b1"><i class="ion-social-linkedin"></i></a>             
+            </div><!--/col-md-8-->
+        </div>
+      </div><!--/container-->
+    </div><!--/.F-->
+
+    <!-- Minified bower components -->
+    <script src="dist/vendor/vendor.min.js"></script>
+
+    <!-- Minified javascript -->
+    <script src="dist/js/main.min.js"></script>
+
+    <!-- Minified components -->
+    <script src="dist/components/components.js"></script>
+
+    <!-- Concatenated templates -->
+    <script src="dist/templates/templates.js"></script>
+
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+
+
+  </body>
+</html>

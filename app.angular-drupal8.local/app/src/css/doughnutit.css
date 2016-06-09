@@ -1,0 +1,20 @@
+#skillsWrapper {
+
+}
+.circleWrapper {
+	/*width: 120px;*/
+	font-size: 30px;
+	text-align: center;
+	display:inline;
+	position: relative;
+	margin-top: 40px;
+}
+
+.circle-rate {
+	position: absolute;
+    top: 25px;
+    font-size: 40px;
+    left: 50%;
+    margin-left: -40px;
+    font-weight: lighter;
+}
