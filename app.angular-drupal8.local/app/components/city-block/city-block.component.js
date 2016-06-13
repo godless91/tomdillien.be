@@ -13,51 +13,27 @@ angular.
 	            controller: function($scope, close) {
 				    $scope.submitForm = function(contactform) {
 				    	console.log(contactform);
-				        // check to make sure the form is completely valid
-						    if (contactform.$valid) {
-						    	console.log($scope.formData);
-						       $http({
-					                method  : 'POST',
-					                url     : drupalBaseUrl + '/contact-form-process',
-					                data    : $.param($scope.formData),  //param method from jQuery
-					                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-					            }).success(function(data){
-					                if (data.success) { //success comes from the return json object
-					                    $scope.submitButtonDisabled = true;
-					                    $scope.formHidden = true;
-					                    $scope.resultMessage = data.message;
-					                    $scope.result= 'bg-success';
-					                } else {
-					                    $scope.submitButtonDisabled = false;
-					                    $scope.resultMessage = data.message;
-					                    $scope.result='bg-danger';
-					                }
-					            });
-						    }
-				        // if (contactform.$valid) {
-				        // 	console.log('valid');
-				        //     $http({
-				        //         method  : 'POST',
-				        //         url     : drupalBaseUrl + '/contact-form-submit',
-				        //         data    : $.param($scope.formData),  //param method from jQuery
-				        //         headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-				        //     }).success(function(data){
-				        //         console.log(data);
-				        //         if (data.success) { //success comes from the return json object
-				        //             $scope.submitButtonDisabled = true;
-				        //             $scope.resultMessage = data.message;
-				        //             $scope.result='bg-success';
-				        //         } else {
-				        //             $scope.submitButtonDisabled = false;
-				        //             $scope.resultMessage = data.message;
-				        //             $scope.result='bg-danger';
-				        //         }
-				        //     });
-				        // } else {
-				        //     $scope.submitButtonDisabled = false;
-				        //     $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
-				        //     $scope.result='bg-danger';
-				        // }
+						// check to make sure the form is completely valid
+						if (contactform.$valid) {
+							console.log($scope.formData);
+						   $http({
+								method  : 'POST',
+								url     : drupalBaseUrl + '/contact-form-process',
+								data    : $.param($scope.formData),  //param method from jQuery
+								headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+							}).success(function(data){
+								if (data.success) { //success comes from the return json object
+									$scope.submitButtonDisabled = true;
+									$scope.formHidden = true;
+									$scope.resultMessage = data.message;
+									$scope.result= 'bg-success';
+								} else {
+									$scope.submitButtonDisabled = false;
+									$scope.resultMessage = data.message;
+									$scope.result='bg-danger';
+								}
+							});
+						}
 				    }
 
 	              $scope.close = function(result) {
