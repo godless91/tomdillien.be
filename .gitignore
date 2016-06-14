@@ -42,6 +42,8 @@ cms.angular-drupal8.local/sites/simpletest
 cms.angular-drupal8.local/core/phpcs.xml
 cms.angular-drupal8.local/core/phpunit.xml
 
+.DS_Store
+**/.DS_Store
 
 # Angular gitignore.
 app.angular-drupal8.local/logs/*
@@ -49,5 +51,4 @@ app.angular-drupal8.local/!.gitkeep
 app.angular-drupal8.local/node_modules/
 app.angular-drupal8.local/bower_components/
 app.angular-drupal8.local/tmp
-app.angular-drupal8.local/.DS_Store
 app.angular-drupal8.local/.idea

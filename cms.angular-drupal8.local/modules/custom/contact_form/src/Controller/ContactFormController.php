@@ -18,6 +18,7 @@ class ContactFormController extends ControllerBase {
 
   /**
    * Return response of contact form processing.
+   * @param $request
    *
    * @return json.
    */
@@ -29,7 +30,6 @@ class ContactFormController extends ControllerBase {
     $message = $request->get('inputMessage');
       
     $to = 'tom@pau.be';
-    $website = 'www.tomdillien.be';
     $from = $email;
     $base_root = $_SERVER['HTTP_HOST'];
     $params = [
@@ -44,17 +44,18 @@ class ContactFormController extends ControllerBase {
  
     $module = 'contact_form';
     $key = 'contact_form_mail';
-    $langcode = \Drupal::languageManager()->getDefaultLanguage();
+    $langCode = \Drupal::languageManager()->getDefaultLanguage();
     $send = true;
   
-    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    $result = $mailManager->mail($module, $key, $to, $langCode, $params, NULL, $send);
   
     if ($result['result'] !== true) {
       $response['success'] = false;
-    $response['message'] = 'Email could not be sent.';
+      $response['message'] = 'Email could not be sent.';
+    } else {
+      $response['success'] = true;
+      $response['message'] = 'Email has been sent';
     }
-    $response['success'] = true;
-    $response['message'] = 'Email has been sent';
     
     return new JsonResponse($response);
 
