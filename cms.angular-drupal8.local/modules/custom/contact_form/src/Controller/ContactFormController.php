@@ -29,7 +29,7 @@ class ContactFormController extends ControllerBase {
     $subject = $request->get('inputSubject');
     $message = $request->get('inputMessage');
       
-    $to = 'tom@pau.be';
+    $to = 'tom.dillien91@gmail.com';
     $from = $email;
     $base_root = $_SERVER['HTTP_HOST'];
     $params = [
@@ -49,12 +49,12 @@ class ContactFormController extends ControllerBase {
   
     $result = $mailManager->mail($module, $key, $to, $langCode, $params, NULL, $send);
   
-    if ($result['result'] !== true) {
-      $response['success'] = false;
-      $response['message'] = 'Email could not be sent.';
-    } else {
+    if ($result) {
       $response['success'] = true;
       $response['message'] = 'Email has been sent';
+    } else {
+      $response['success'] = false;
+      $response['message'] = 'Email could not be sent.';
     }
     
     return new JsonResponse($response);
