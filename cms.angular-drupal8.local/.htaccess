@@ -1,7 +1,6 @@
 #
 # Apache/PHP/Drupal settings:
 #
-Header set Access-Control-Allow-Origin "*"
 
 # Protect files and directories from prying eyes.
 <FilesMatch "\.(engine|inc|install|make|module|profile|po|sh|.*sql|theme|twig|tpl(\.php)?|xtmpl|yml)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\.(?!well-known).*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig|\.save)$">
@@ -183,6 +182,8 @@ AddEncoding gzip svgz
 
 # Add headers to all responses.
 <IfModule mod_headers.c>
+   Header set Access-Control-Allow-Origin http://app.angular-drupal8.local/
+   Header set Access-Control-Allow-Credentials true
   # Disable content sniffing, since it's an attack vector.
   Header always set X-Content-Type-Options nosniff
 </IfModule>

@@ -1,0 +1,9 @@
+uuid: b012166c-ad72-44e4-857b-e0a17b0dbe36
+langcode: en
+status: true
+dependencies: {  }
+name: Technologies
+vid: technologies
+description: 'List of all technologies I possess'
+hierarchy: 0
+weight: 0

@@ -12,7 +12,6 @@ angular.
 	            templateUrl: "/components/city-block/contact-form.template.html",
 	            controller: function($scope, close) {
 				    $scope.submitForm = function(contactform) {
-				    	console.log(contactform);
 						// check to make sure the form is completely valid
 						if (contactform.$valid) {
 							console.log($scope.formData);
@@ -22,12 +21,15 @@ angular.
 								data    : $.param($scope.formData),  //param method from jQuery
 								headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
 							}).success(function(data){
+							   console.log(data);
+							   console.log('success');
 								if (data.success) { //success comes from the return json object
 									$scope.submitButtonDisabled = true;
 									$scope.formHidden = true;
 									$scope.resultMessage = data.message;
 									$scope.result= 'bg-success';
 								} else {
+									console.log('false');
 									$scope.submitButtonDisabled = false;
 									$scope.resultMessage = data.message;
 									$scope.result='bg-danger';

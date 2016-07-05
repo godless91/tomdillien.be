@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav ng-controller='navigationCtrl' class="navbar navbar-default navbar-fixed-top" navigation-post-load-directive>
+<nav class="navbar navbar-default navbar-fixed-top"  navigation-post-load-directive>
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#top"> <img ng-src='/dist/img/myAvatar.png' /> <p class="triangle-right left">{{ speechBubbleText }}</p> </a>
+            <a class="navbar-brand page-scroll" href="#top"> <img ng-src='/dist/img/myAvatar.png' /> <p class="triangle-right left">{{ $ctrl.speechBubbleText }}</p> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

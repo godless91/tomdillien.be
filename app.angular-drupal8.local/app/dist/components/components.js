@@ -13,52 +13,30 @@ angular.
 	            templateUrl: "/components/city-block/contact-form.template.html",
 	            controller: function($scope, close) {
 				    $scope.submitForm = function(contactform) {
-				    	console.log(contactform);
-				        // check to make sure the form is completely valid
-						    if (contactform.$valid) {
-						    	console.log($scope.formData);
-						       $http({
-					                method  : 'POST',
-					                url     : drupalBaseUrl + '/contact-form-process',
-					                data    : $.param($scope.formData),  //param method from jQuery
-					                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-					            }).success(function(data){
-					                if (data.success) { //success comes from the return json object
-					                    $scope.submitButtonDisabled = true;
-					                    $scope.formHidden = true;
-					                    $scope.resultMessage = data.message;
-					                    $scope.result= 'bg-success';
-					                } else {
-					                    $scope.submitButtonDisabled = false;
-					                    $scope.resultMessage = data.message;
-					                    $scope.result='bg-danger';
-					                }
-					            });
-						    }
-				        // if (contactform.$valid) {
-				        // 	console.log('valid');
-				        //     $http({
-				        //         method  : 'POST',
-				        //         url     : drupalBaseUrl + '/contact-form-submit',
-				        //         data    : $.param($scope.formData),  //param method from jQuery
-				        //         headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-				        //     }).success(function(data){
-				        //         console.log(data);
-				        //         if (data.success) { //success comes from the return json object
-				        //             $scope.submitButtonDisabled = true;
-				        //             $scope.resultMessage = data.message;
-				        //             $scope.result='bg-success';
-				        //         } else {
-				        //             $scope.submitButtonDisabled = false;
-				        //             $scope.resultMessage = data.message;
-				        //             $scope.result='bg-danger';
-				        //         }
-				        //     });
-				        // } else {
-				        //     $scope.submitButtonDisabled = false;
-				        //     $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
-				        //     $scope.result='bg-danger';
-				        // }
+						// check to make sure the form is completely valid
+						if (contactform.$valid) {
+							console.log($scope.formData);
+						   $http({
+								method  : 'POST',
+								url     : drupalBaseUrl + '/contact-form-process',
+								data    : $.param($scope.formData),  //param method from jQuery
+								headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+							}).success(function(data){
+							   console.log(data);
+							   console.log('success');
+								if (data.success) { //success comes from the return json object
+									$scope.submitButtonDisabled = true;
+									$scope.formHidden = true;
+									$scope.resultMessage = data.message;
+									$scope.result= 'bg-success';
+								} else {
+									console.log('false');
+									$scope.submitButtonDisabled = false;
+									$scope.resultMessage = data.message;
+									$scope.result='bg-danger';
+								}
+							});
+						}
 				    }
 
 	              $scope.close = function(result) {
@@ -178,7 +156,6 @@ angular.
                 method: 'GET',
                 url: $drupalBaseUrl + '/latest-works/' + $id
               }).then(function successCallback(response) {
-                console.log(response.data[0]);
                   // Create array from other images comma seperated list.
                   $scope.strImages = response.data[0].field_other_images;
                   $scope.arrImages = new Array();
@@ -215,7 +192,6 @@ angular.
 
             angular.forEach(response.data, function(item) {
               var strTags = item.field_tags;
-              var arrTags = new Array();
               item.field_tags = strTags.split(',');
             });
             localStorage.setItem('latest_works',  JSON.stringify(response.data));
@@ -236,40 +212,21 @@ angular.
       // If all works are looped and added to template, add jquery ini.
       if (scope.$last){
         // Load in portfolio init script.
-        var s = document.createElement('script');
+       /* var s = document.createElement('script');
         s.src = '/components/latest-works/js/portfolio.init.js';
-        document.body.appendChild(s);
+        document.body.appendChild(s);*/
          
       }
     }
   })
 ;
-angular.module('navigation', ['templates']).
-	controller('navigationCtrl', function($scope, $location, $interval) {
-    $scope.speechBubbleText = 'Welcome';
-    var arrSpeechBubble = [
-    	"PHP",
-    	"Javascript",
-    	"jQuery",
-    	"Drupal7",
-    	"Drupal8",
-    	"Symfony2",
-    	"AngularJs",
-    	"Gruntjs",
-    	"Gulpjs",
-    	"HTML5",
-    	"CSS3"
-    ];
-    $interval(function () {
-        $scope.speechBubbleText = arrSpeechBubble[Math.floor(Math.random() * arrSpeechBubble.length)];
-    }, 3000);
-});
+angular.module('navigation', ['templates']);
 angular.
   module('navigation').
   component('navigation', {
     templateUrl: '/components/navigation/navigation.template.html',
-    controller: ['$http', 'drupalBaseUrl',
-      function NavigationController($http, $drupalBaseUrl) {
+    controller: ['$http', 'drupalBaseUrl', '$interval',
+      function NavigationController($http, $drupalBaseUrl, $interval) {
         var self = this;
 
         $http({
@@ -280,6 +237,26 @@ angular.
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
+        });
+
+        self.speechBubbleText = 'Welcome';
+        var arrSpeechBubble = [];
+
+        $http({
+          method: 'GET',
+          url: $drupalBaseUrl + '/technologies'
+        }).then(function successCallback(response) {
+          // Add all found terms to array.
+          response.data.forEach(function($entry) {
+            arrSpeechBubble.push($entry.name);
+          });
+          // Set interval on that array
+          $interval(function () {
+            self.speechBubbleText = arrSpeechBubble[Math.floor(Math.random() * arrSpeechBubble.length)];
+          }, 3000);
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
         });
 
       }

@@ -15,7 +15,6 @@ angular.
                 method: 'GET',
                 url: $drupalBaseUrl + '/latest-works/' + $id
               }).then(function successCallback(response) {
-                console.log(response.data[0]);
                   // Create array from other images comma seperated list.
                   $scope.strImages = response.data[0].field_other_images;
                   $scope.arrImages = new Array();
@@ -52,7 +51,6 @@ angular.
 
             angular.forEach(response.data, function(item) {
               var strTags = item.field_tags;
-              var arrTags = new Array();
               item.field_tags = strTags.split(',');
             });
             localStorage.setItem('latest_works',  JSON.stringify(response.data));
@@ -73,9 +71,9 @@ angular.
       // If all works are looped and added to template, add jquery ini.
       if (scope.$last){
         // Load in portfolio init script.
-        var s = document.createElement('script');
+       /* var s = document.createElement('script');
         s.src = '/components/latest-works/js/portfolio.init.js';
-        document.body.appendChild(s);
+        document.body.appendChild(s);*/
          
       }
     }

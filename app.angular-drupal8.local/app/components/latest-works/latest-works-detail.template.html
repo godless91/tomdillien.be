@@ -13,10 +13,17 @@
         <div class="col-lg-8 col-lg-offset-2">
           <div class="modal-body">
 
+
             <!-- Project Details Go Here -->
             <h2>{{ work[0].title }}</h2>
             <p class="item-intro text-muted">{{ work[0].field_subtitle }}</p>
-            <img ng-repeat='imageSrc in arrImages' ng-src='{{ imageSrc }}'>
+
+
+            <div class="last-works-detail-images">
+              <!-- These are our grid blocks -->
+              <img ng-repeat="imageSrc in arrImages" ng-src="{{ imageSrc }}">
+            </div>
+
             <p ng-bind-html='work[0].body'></p>
             <ul class="list-inline">
               <li ng-repeat='tag in arrTags' >{{ tag }}</li>
