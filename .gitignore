@@ -45,6 +45,10 @@ cms.angular-drupal8.local/core/phpunit.xml
 .DS_Store
 **/.DS_Store
 
+.DS_Store
+**/.htaccess
+
+
 # Angular gitignore.
 app.angular-drupal8.local/logs/*
 app.angular-drupal8.local/!.gitkeep
